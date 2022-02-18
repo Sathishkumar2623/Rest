@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,16 +43,47 @@ public class AdminController {
 		return ResponseEntity.ok(AdminService.getAllUser());
 	}
 
-	/*@PostMapping("/postUser")
-	public ResponseEntity<Object> postStudent(@RequestBody AdminModel model) {
+	
+	  @PostMapping("/postUser") public ResponseEntity<Object>
+	  postStudent(@RequestBody AdminModel model) { try { boolean status =
+	  AdminService.postUser(model); if (!status) { throw new Exception(); } return
+	  new ResponseEntity<Object>(model, HttpStatus.CREATED); } catch (Exception e)
+	  { return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST); }
+	  }
+
+	@PutMapping("/forgotPassword")
+	public ResponseEntity<Object> forgotPassword(@RequestBody AdminModel model) {
+		boolean status = this.AdminService.forgotPassword(model);
+		if (status) {
+			return new ResponseEntity<Object>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@PutMapping("/Password")
+	public ResponseEntity<Object> Password(@RequestBody AdminModel model) {
+		String userId = this.AdminService.getUserId(model);
+		if (!userId.equals("")) {
+			Map<String, String> message = new HashMap<String, String>();
+			message.put("userId", userId);
+			return ResponseEntity.ok(message);
+		} else {
+			return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@PutMapping("/UserPassword")
+	public ResponseEntity<Object> postPassword(@RequestBody AdminModel model) {
 		try {
-			boolean status = AdminService.postUser(model);
+			boolean status = AdminService.postUserPassword(model);
 			if (!status) {
 				throw new Exception();
 			}
 			return new ResponseEntity<Object>(model, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-		}*/
+		}
 	}
 
+}

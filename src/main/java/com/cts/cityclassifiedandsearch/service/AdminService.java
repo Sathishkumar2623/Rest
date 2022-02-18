@@ -13,18 +13,29 @@ public class AdminService {
 
 	@Autowired
 	private AdminDao AdminDao;
-	
+
 	public String checkLogin(AdminModel user) {
 		return this.AdminDao.checkLogin(user);
 	}
 
-	
 	public List<AdminModel> getAllUser() {
 		return AdminDao.getAllUsers();
 	}
 
-	//public boolean postUser(AdminModel user) {
-	//	return AdminDao.insertUser(user);
-	//}
-}
+	public boolean postUser(AdminModel user) {
+		return AdminDao.insertUser(user);
+	}
 
+	public boolean forgotPassword(AdminModel user) {
+		return this.AdminDao.forgotPassword(user);
+	}
+
+	public boolean postUserPassword(AdminModel user) {
+		return this.AdminDao.updatePassword(user);
+	}
+
+	public String getUserId(AdminModel user) {
+		return this.AdminDao.userId(user);
+	}
+
+}
