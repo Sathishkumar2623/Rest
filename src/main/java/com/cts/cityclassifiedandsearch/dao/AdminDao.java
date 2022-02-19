@@ -14,9 +14,9 @@ public class AdminDao {
 
 	private final String SELECT = "select * from user;";
 	private final String LOGIN = "select password from user where user_Id = ? ";
-	private final String USERID = "select user_Id from security_question where ContactNumber =? and ans1 =? and ans2=? and ans3=? ";
+	private final String USERID = "select user_Id from security_question where ContactNumber =? and ans1 =? and ans2 =? and ans3 =? ";
 	private final String INSERT_ANS = "insert into security_question (user_id,ans1,ans2,ans3) values(?,?,?,?);";
-	private final String UPDATE_PASSWORD = "update User set password=? where user_Id=? ";
+	private final String UPDATE_PASSWORD = "update user set password=? where user_Id=? ";
 	private final String FORGOT_PASSWORD = "select user_Id from security_question where user_Id = ? and ans1 = ? and ans2 = ? and ans3 = ?;";
 
 	private final String INSERT = "insert into user (firstName,lastName,alternateNumber,email,contactNumber,user_Id,password,role,userName) values(?,?,?,?,?,?,?,?,?);";
