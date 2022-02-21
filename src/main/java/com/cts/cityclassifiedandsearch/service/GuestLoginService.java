@@ -14,7 +14,8 @@ public class GuestLoginService {
 	@Autowired
 	private GuestLoginDao GuestLoginDao;
 	
-	public List<GuestLoginModel> getAllCityName() {
-		return GuestLoginDao.getAllCityName();
+	public List<GuestLoginModel> getInformation() {
+		return GuestLoginDao.getInformation();
 }
+	
 }

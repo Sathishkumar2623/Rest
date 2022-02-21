@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.cts.cityclassifiedandsearch.model.AdminModel;
 import com.cts.cityclassifiedandsearch.model.GuestLoginModel;
 
 public class GuestLoginMapper implements RowMapper<GuestLoginModel> {
@@ -15,6 +14,7 @@ public class GuestLoginMapper implements RowMapper<GuestLoginModel> {
 		GuestLoginModel login = new GuestLoginModel();
 		login.setCityid(resultSet.getString("city_id"));
 		login.setCityName(resultSet.getString("cityName"));
+		login.setSubject(resultSet.getString("subject"));
 		return login;
 }
 	
