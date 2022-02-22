@@ -36,8 +36,56 @@ insert into ticket values('1','2022-02-08','best college','need more classes','a
 create table classifieds (id varchar(20),categories varchar(20),contactNumber varchar(20),alternateNumber varchar(20),email varchar(40),remarks varchar(20),postedOn varchar(20),postedById varchar(20),postedByName varchar(20),city_id varchar(20),lastUpdatedDate varchar(20),lastUpdatedById varchar(20),lastUpdatedByName varchar(20),foreign key(city_id) references city (city_id));
 insert into classifieds values ('1','teacher','9884798621','9675432913','3dwin4braham@gmail.com','good','2022-01-02','3dwin4braham','EdwinAbraham','23','2022-02-07','shashankAI','ShashankTharanath'), ('2','elecrical service','9150055502','9675432913','gunalanthangavel@gmail.com','good','2022-01-03','gunalant','GunalanThangavel','15','2022-02-07','sathishsurya','SathishKumar'), ('3','tourism and travel','8220551935','9675432913','sathishsurya2623@gmail.com','good','2022-01-05','sathishsurya','SathishKumar','20','2022-02-07','3dwin4braham','EdwinAbraham');
 
-create table information (info_id varchar(15),subject varchar(25),addressLine1 varchar(50),addressLine2 varchar(30),city varchar(30),state varchar(20),zip varchar(15),contactNumber varchar(12),alternateNumber varchar(12),email varchar(50),fax varchar(20),remarks varchar(60),postedOn varchar(20),postedById varchar(20),postedByName varchar(20),city_id varchar(20),lastUpdatedDate varchar(20),lastUpdatedById varchar(20),lastUpdatedByName varchar(20));
+create table information (info_id varchar(15),subject varchar(25),addressLine1 varchar(50),addressLine2 varchar(30),cityName varchar(30),state varchar(20),zip varchar(15),contactNumber varchar(12),alternateNumber varchar(12),email varchar(50),fax varchar(20),remarks varchar(60),postedOn varchar(20),postedById varchar(20),postedByName varchar(20),city_id varchar(20),lastUpdatedDate varchar(20),lastUpdatedById varchar(20),lastUpdatedByName varchar(20));
 insert into information values ('1','college','fgh','wyz','chn','Tn','600091','7338125609','9672432954','shashank976@gmail.com','564435','good','2021-09-23','shashankAI','ShashankTharanath','23','2022-01-23','3dwin4braham','EdwinAbraham'),  ('2','school','fvy','abc','chn','Tn','600091','9150055502','9675432913','gunalanthangavel@gmail.com','561835','good','2021-12-03','gunalant','GunalanThangavel','12','2022-02-09','sathishsurya','SathishKumar'), ('3','shoppingmall','bcd','xyz','ban','Kar','403690','8220551935','9765432125','sathishsurya2623@gmail.com','5345835','good','2021-11-08','sathishsurya','SathishKumar','15','2022-02-05','shashankAI','ShashankTharanath');
 
-create table Security_Question(user_id varchar(20),contactNumber varchar(12),qid1 numeric,qid2 numeric,qid3 numeric,ans1 varchar(20),ans2 varchar(20),ans3 varchar(20),foreign key(user_id) references user (user_Id),primary key(contactNumber));
-insert into Security_Question values("Vignesh33","9843164937",01,02,03,"scooby","blue","sat");
+create table Security_Question(user_id varchar(20),contactNumber varchar(12),qid1 numeric,qid2 numeric,qid3 numeric,ans1 varchar(20),ans2 varchar(20),ans3 varchar(20),foreign key (user_id,contactNumber) references user (user_Id,contactNumber));
+insert into Security_Question values("Vignesh33","9843164937",01,02,03,"scooby","blue","sat","dog","green","sun");
+
+update information
+set name="ABC ENGINEERING COLLEGE"
+where info_id=1;
+
+update information
+set name="KIDS SCHOOL"
+where info_id=2;
+
+update information
+set name="PHOENIX MALL"
+where info_id=3;
+
+update information
+set email="abccollege@gmail.com"
+where info_id=1;
+
+update information
+set email="kidsschool@gmail.com"
+where info_id=2;
+
+update information
+set email="phoenix@gmail.com"
+where info_id=3;
+
+update classifieds
+set email="tam@gmail.com"
+where id=1;
+
+update classifieds
+set email="ece@gmail.com"
+where id=2;
+
+update classifieds
+set email="tour@gmail.com"
+where id=3;
+
+update classifieds
+set name="tam"
+where id=1;
+
+update classifieds
+set name="ece"
+where id=3;
+
+update classifieds
+set name="tour"
+where id=3;
